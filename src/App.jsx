@@ -5,6 +5,25 @@ import { db } from './data/db';
 
 function App() {
   const [data, setData] = useState(db);
+  const [cart, setCart] = useState([]);
+
+  const handleAdd = (item) => {
+    
+    const itemExists = cart.find((elem) => elem.id === item.id);
+
+    if(!itemExists) {
+      item.quantity = 1;
+      setCart([...cart, item]);
+    } else {
+      const updatedCart = cart.map((elem) => {
+        if (elem.id === item.id) {
+          return { ...elem, quantity: elem.quantity + 1 };
+        }
+        return elem;
+      });
+      setCart(updatedCart);
+    }
+  }
 
   return (
     <>
@@ -14,7 +33,7 @@ function App() {
         <h2 className="text-center">Our Collection</h2>
 
         <div className="row mt-5">
-          <Guitar />
+          <Guitar handleAdd={handleAdd} />
         </div>
       </div>
 
