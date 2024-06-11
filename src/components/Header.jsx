@@ -16,7 +16,7 @@ export const Header = ({ cart, handleRemove, increaseGuitar, decreaseGuitar, cle
                     </div>
                     <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
                         <div className="carrito">
-                            <img className="img-fluid" src="./public/img/carrito.png" alt="cart img" />
+                            <img className="img-fluid" src="/img/carrito.png" alt="cart img" />
 
                             <div id="carrito" className="bg-white p-3">
                                 {
@@ -38,7 +38,7 @@ export const Header = ({ cart, handleRemove, increaseGuitar, decreaseGuitar, cle
                                                 {cart.map((item) => (
                                                     <tr key={item.id}>
                                                         <td>
-                                                            <img className="img-fluid" src={`./public/img/${item.image}.jpg`} alt="guitar img" />
+                                                            <img className="img-fluid" src={`/img/${item.image}.jpg`} alt="guitar img" />
                                                         </td>
                                                         <td>{item.name}</td>
                                                         <td className="fw-bold">
