@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export const Header = ({ cart }) => {
+export const Header = ({ cart, handleRemove, increaseGuitar, decreaseGuitar, clearCart }) => {
 
     const totalCart = () => cart.reduce((total, elem)=> total + (elem.quantity * elem.price), 0); // 0 is the initial value
 
@@ -21,7 +21,7 @@ export const Header = ({ cart }) => {
                             <div id="carrito" className="bg-white p-3">
                                 {
                                     cart.length === 0 ? (
-                                        <p className="text-center">The cart is empty.</p>
+                                        <p className="text-center">The cart is empty</p>
                                     ) : (
                                         <>
                                         <table className="w-100 table">
@@ -48,6 +48,7 @@ export const Header = ({ cart }) => {
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
+                                                                onClick={() => decreaseGuitar(item.id)}
                                                             >
                                                                 -
                                                             </button>
@@ -55,6 +56,7 @@ export const Header = ({ cart }) => {
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
+                                                                onClick={() => increaseGuitar(item.id)}
                                                             >
                                                                 +
                                                             </button>
@@ -63,6 +65,7 @@ export const Header = ({ cart }) => {
                                                             <button
                                                                 className="btn btn-danger"
                                                                 type="button"
+                                                                onClick={() => handleRemove(item.id)}
                                                             >
                                                                 X
                                                             </button>
@@ -72,7 +75,7 @@ export const Header = ({ cart }) => {
                                             </tbody>
                                         </table>
                                         <p className="text-end">Total to pay: <span className="fw-bold">${totalCart()}</span></p>
-                                        <button className="btn btn-dark w-100 mt-3 p-2">Empty Cart</button>
+                                        <button className="btn btn-dark w-100 mt-3 p-2" onClick={clearCart}>Empty Cart</button>
                                         </>
                                     )}
                             </div>

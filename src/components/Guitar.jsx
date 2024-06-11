@@ -1,7 +1,7 @@
 import React from 'react';
 import { db } from '../data/db';
 
-export const Guitar = ({handleAdd}) => {
+export const Guitar = ({handleAddToCart}) => {
 
     return (
         <div className="row">
@@ -18,7 +18,7 @@ export const Guitar = ({handleAdd}) => {
                             <button
                                 type="button"
                                 className="btn btn-dark w-100"
-                                onClick={() => handleAdd(item)}
+                                onClick={() => handleAddToCart(item)}
                             >Add to Cart</button>
                         </div>
                     </div>
